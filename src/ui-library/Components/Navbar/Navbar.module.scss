@@ -1,0 +1,7 @@
+@import "../../colors.module", "../../mixins.module";
+
+.navbar {
+
+  @include flex;
+  background-color: $light;
+}

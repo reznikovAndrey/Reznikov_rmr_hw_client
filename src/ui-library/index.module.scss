@@ -1,16 +1,23 @@
+@import "mixins.module";
+
 html,
 body {
+
+  @include reset;
   box-sizing: border-box;
   height: 100%;
-  margin: 0;
-  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
   div[id="root"] {
-    display: flex;
-    flex-direction: column;
 
+    @include flex-column;
     min-height: 100%;
   }
 }

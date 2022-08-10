@@ -1,4 +1,11 @@
+@import "../../colors.module";
+
 .footer {
   flex-grow: 0;
   flex-shrink: 0;
+
+  color: $white;
+  text-align: center;
+
+  background-color: $dark;
 }
