@@ -1,9 +1,7 @@
+import { FC, PropsWithChildren } from 'react';
+
 import styles from './Content.module.scss';
 
-type Props = {
-  children: React.ReactNode;
-};
-
-const Content: React.FC<Props> = ({ children }) => <main className={styles.content}>{children}</main>;
+const Content: FC<PropsWithChildren> = ({ children }) => <main className={styles.content}>{children}</main>;
 
 export default Content;
