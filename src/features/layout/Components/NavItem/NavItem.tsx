@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import styles from './NavItem.module.scss';
 
 type NavItemProps = {
@@ -6,9 +8,9 @@ type NavItemProps = {
 };
 
 const NavItem: React.FC<NavItemProps> = ({ text, href }) => (
-  <a href={href} className={styles.navItem}>
+  <Link to={href} className={styles.navItem}>
     {text}
-  </a>
+  </Link>
 );
 
 export default NavItem;

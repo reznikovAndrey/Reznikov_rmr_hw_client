@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import { AppRoutes } from './screens';
+import './ui-library/index.scss';
 
-const App: FC = () => <h1>hello</h1>;
+const App: React.FC = () => <AppRoutes />;
 
 export default App;
