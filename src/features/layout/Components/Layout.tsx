@@ -3,7 +3,7 @@ import { FC, PropsWithChildren } from 'react';
 import { FooterItem } from './FooterItem';
 import { NavItem } from './NavItem';
 
-import { Content, Footer, Header, Navbar } from '../../../ui-library/Components';
+import { Content, Footer, Header, Navbar, Container } from '../../../ui-library/Components';
 
 import { getNavItems, getFooterItems } from '../Utils';
 
@@ -20,7 +20,9 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
           ))}
         </Navbar>
       </Header>
-      <Content>{children}</Content>
+      <Content>
+        <Container>{children}</Container>
+      </Content>
       <Footer>
         {footerItems.map(({ text, href }) => (
           <FooterItem key={href} text={text} href={href} />

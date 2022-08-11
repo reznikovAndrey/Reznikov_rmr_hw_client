@@ -5,6 +5,10 @@
 
   color: $dark;
 
+  &:last-child {
+    padding-right: 0;
+  }
+
   &:hover {
 
     @include hover-link;

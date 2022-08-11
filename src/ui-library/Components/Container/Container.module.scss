@@ -1,0 +1,13 @@
+@import "../../sizes", "../../responsive";
+
+.container {
+
+  @include tablet {
+    padding: $min $mid;
+  }
+
+  @include laptop {
+    padding: $mid $max;
+  }
+  padding: $min;
+}

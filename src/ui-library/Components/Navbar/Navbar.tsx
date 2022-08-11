@@ -6,13 +6,17 @@ import styles from './Navbar.module.scss';
 import routingService from '../../../infrastructure/RoutingService/routing.service';
 import { ReactComponent as Logo } from '../../Icons/typescript.svg';
 
-const Navbar: FC<PropsWithChildren> = ({ children }) => (
-  <nav className={styles.navbar}>
-    <Link to={routingService.content()} className={styles.logo}>
-      <Logo />
-    </Link>
-    {children}
-  </nav>
-);
+const Navbar: FC<PropsWithChildren> = ({ children }) => {
+  const navClasses = [styles.navbar, styles.container].join(' ');
+
+  return (
+    <nav className={navClasses}>
+      <Link to={routingService.content()} className={styles.logo}>
+        <Logo />
+      </Link>
+      {children}
+    </nav>
+  );
+};
 
 export default Navbar;

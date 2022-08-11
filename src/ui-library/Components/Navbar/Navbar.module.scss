@@ -1,12 +1,10 @@
-@import "../../colors", "../../mixins", "../../sizes", "../../fonts";
+@import "../../colors", "../../mixins", "../../sizes", "../../fonts", "../Container/Container.module";
 
 .navbar {
 
   @include flex;
   flex-grow: 1;
   align-items: center;
-
-  padding: $mid;
 
   font-size: $font-lg;
 
@@ -18,7 +16,6 @@
     width: 75px;
     height: 75px;
     margin-right: auto;
-    padding-left: $mid;
 
     svg {
       width: 100%;
