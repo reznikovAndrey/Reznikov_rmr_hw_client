@@ -13,9 +13,16 @@
   background-color: $light;
 
   .logo {
+    cursor: pointer;
+
     width: 75px;
     height: 75px;
     margin-right: auto;
     padding-left: $mid;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
