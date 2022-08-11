@@ -1,9 +1,16 @@
-@import "../../colors.module";
+@import "../../colors", "../../mixins", "../../fonts";
 
 .footer {
+
+  @include flex;
+
+  @include flex-center;
   flex-grow: 0;
   flex-shrink: 0;
 
+  min-height: 100px;
+
+  font-size: $font-md;
   color: $white;
   text-align: center;
 

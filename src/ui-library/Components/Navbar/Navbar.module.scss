@@ -1,7 +1,21 @@
-@import "../../colors.module", "../../mixins.module";
+@import "../../colors", "../../mixins", "../../sizes", "../../fonts";
 
 .navbar {
 
   @include flex;
+  flex-grow: 1;
+  align-items: center;
+
+  padding: $mid;
+
+  font-size: $font-lg;
+
   background-color: $light;
+
+  .logo {
+    width: 75px;
+    height: 75px;
+    margin-right: auto;
+    padding-left: $mid;
+  }
 }

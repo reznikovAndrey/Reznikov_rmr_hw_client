@@ -1,0 +1,29 @@
+@import "sizes";
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-column {
+
+  @include flex;
+  flex-direction: column;
+}
+
+@mixin flex-center($gap: $mid) {
+
+  @include flex;
+  gap: $gap;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin hover-link {
+  color: $teal;
+  text-decoration: none;
+}

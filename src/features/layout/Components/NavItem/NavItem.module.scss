@@ -1,0 +1,12 @@
+@import "../../../../ui-library/colors", "../../../../ui-library/mixins", "../../../../ui-library/sizes";
+
+.navItem {
+  padding: 0 $mid;
+
+  color: $dark;
+
+  &:hover {
+
+    @include hover-link;
+  }
+}

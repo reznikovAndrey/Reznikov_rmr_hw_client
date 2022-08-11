@@ -1,11 +1,14 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 import styles from './Navbar.module.scss';
 
-type NavbarTypes = {
-  children: React.ReactNode;
-};
+import { ReactComponent as Logo } from '../../Icons/typescript.svg';
 
-const Navbar: FC<NavbarTypes> = ({ children }) => <nav className={styles.navbar}>{children}</nav>;
+const Navbar: FC<PropsWithChildren> = ({ children }) => (
+  <nav className={styles.navbar}>
+    <Logo className={styles.logo} />
+    {children}
+  </nav>
+);
 
 export default Navbar;
