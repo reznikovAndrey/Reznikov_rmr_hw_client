@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { FC, PropsWithChildren } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ import routingService from '../../../infrastructure/RoutingService/routing.servi
 import { ReactComponent as Logo } from '../../Icons/typescript.svg';
 
 const Navbar: FC<PropsWithChildren> = ({ children }) => {
-  const navClasses = [styles.navbar, styles.container].join(' ');
+  const navClasses = cn(styles.navbar, styles.container);
 
   return (
     <nav className={navClasses}>
