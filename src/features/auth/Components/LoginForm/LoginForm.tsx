@@ -2,9 +2,9 @@ import { useFormik } from 'formik';
 
 import styles from './LoginForm.module.scss';
 
-import { Button } from '../../../ui-library/Components';
-import { FormValues } from '../auth.entities';
-import { formValidationSchema } from '../Validation';
+import { Button } from '../../../../ui-library/Components';
+import { FormValues } from '../../auth.entities';
+import { formValidationSchema } from '../../Validation';
 
 const LoginForm: React.FC = () => {
   const formik = useFormik({
@@ -15,7 +15,7 @@ const LoginForm: React.FC = () => {
     },
     validationSchema: formValidationSchema,
     validateOnChange: false,
-    onSubmit: (values: FormValues) => {
+    onSubmit: async (values: FormValues) => {
       console.log(values);
     },
   });
