@@ -6,7 +6,7 @@ import { NotFoundScreen } from './NotFoundScreen';
 import { PrivateScreen } from './PrivateScreen';
 import { ProfileScreen } from './ProfileScreen';
 
-import routingService from '../infrastructure/RoutingService/routing.service';
+import { routingService } from '../infrastructure/RoutingService';
 
 const AppRoutes: React.FC = () => (
   <Routes>
