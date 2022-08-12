@@ -62,7 +62,7 @@ const LoginForm: React.FC = () => {
         <span className={styles.formError}>{formik.errors.password}</span>
       </div>
 
-      <Button submit text="Go to kitty" />
+      <Button type="button" text="Go to kitty" />
     </form>
   );
 };

@@ -1,12 +1,15 @@
 import styles from './Button.module.scss';
 
+type ButtonType = 'submit' | 'button';
+
 type ButtonTypes = {
   text: string;
-  submit?: boolean;
+  type: ButtonType;
 };
 
-const Button: React.FC<ButtonTypes> = ({ text, submit }) => (
-  <button type={submit ? 'submit' : 'button'} className={styles.button}>
+const Button: React.FC<ButtonTypes> = ({ text, type }) => (
+  // eslint-disable-next-line react/button-has-type
+  <button type={type} className={styles.button}>
     {text}
   </button>
 );
