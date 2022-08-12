@@ -1,0 +1,17 @@
+@import "../../colors", "../../sizes", "../../fonts";
+
+.button {
+  cursor: pointer;
+
+  padding: $mid $max;
+
+  font-size: $font-md;
+  color: $white;
+
+  background-color: $primary;
+  border: none;
+
+  &:hover {
+    outline: 2px solid $teal;
+  }
+}

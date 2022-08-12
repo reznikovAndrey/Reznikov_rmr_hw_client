@@ -2,8 +2,8 @@ import { useFormik } from 'formik';
 
 import styles from './LoginForm.module.scss';
 
+import { Button } from '../../../ui-library/Components';
 import { FormValues } from '../auth.entities';
-
 import { formValidationSchema } from '../Validation';
 
 const LoginForm: React.FC = () => {
@@ -62,7 +62,7 @@ const LoginForm: React.FC = () => {
         {formik.errors.password && <span className={styles.formError}>{formik.errors.password}</span>}
       </div>
 
-      <button type="submit">Go to kitty</button>
+      <Button submit text="Go to kitty" />
     </form>
   );
 };
