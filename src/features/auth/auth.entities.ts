@@ -3,3 +3,8 @@ export type FormValues = {
   phone: string;
   password: string;
 };
+
+export type AuthContextType = {
+  loggedIn: boolean;
+  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+};

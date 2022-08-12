@@ -1,0 +1,1 @@
+export { PrivateScreen } from './Components';

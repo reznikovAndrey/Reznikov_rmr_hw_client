@@ -1,3 +1,8 @@
 import { createContext } from 'react';
 
-export default createContext({});
+import { AuthContextType } from '../auth.entities';
+
+export default createContext<AuthContextType>({
+  loggedIn: false,
+  setLoggedIn: () => undefined,
+});
