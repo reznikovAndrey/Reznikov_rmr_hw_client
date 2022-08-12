@@ -12,7 +12,7 @@ const AppRoutes: React.FC = () => (
     <Route path={routingService.login()} element={<LoginScreen />} />
     <Route path={routingService.profile()} element={<ProfileScreen />} />
     <Route path={routingService.content()} element={<ContentScreen />} />
-    <Route path="*" element={<NotFoundScreen />} />
+    <Route path={routingService.notFound()} element={<NotFoundScreen />} />
   </Routes>
 );
 
