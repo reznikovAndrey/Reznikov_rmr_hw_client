@@ -20,10 +20,7 @@
       2,
       {
         "groups": ["external", "builtin", "index", "sibling", "parent", "internal", "type"],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        },
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
         "newlines-between": "always-and-inside-groups"
       }
     ],
@@ -33,15 +30,10 @@
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
-    "import/prefer-default-export": "off"
+    "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never" }],
+    "import/prefer-default-export": "off",
+    "jsx-a11y/label-has-associated-control": ["error", { "required": { "some": ["nesting", "id"] } }],
+    "jsx-a11y/label-has-for": ["error", { "required": { "some": ["nesting", "id"] } }]
   },
   "settings": {
     "import/resolver": {

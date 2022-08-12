@@ -1,0 +1,31 @@
+@import "../../../ui-library/mixins", "../../../ui-library/sizes", "../../../ui-library/fonts", "../../../ui-library/colors";
+
+.loginForm {
+
+  @include flex-column;
+  align-items: center;
+
+  .field {
+
+    @include flex-column;
+    align-items: center;
+
+    padding: $mid;
+
+    input {
+      height: 50px;
+      padding: $mid;
+
+      font-size: $font-md;
+
+      border: 1px solid $dark;
+    }
+  }
+}
+
+.formError {
+  padding: $min;
+
+  font-size: $font-md;
+  color: $error;
+}

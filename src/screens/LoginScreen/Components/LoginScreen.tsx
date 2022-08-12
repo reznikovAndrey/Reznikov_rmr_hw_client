@@ -1,8 +1,9 @@
+import { LoginForm } from '../../../features/auth';
 import { Layout } from '../../../features/layout';
 
 const LoginScreen: React.FC = () => (
   <Layout>
-    <h1>page login</h1>
+    <LoginForm />
   </Layout>
 );
 
