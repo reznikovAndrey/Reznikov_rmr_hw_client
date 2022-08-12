@@ -8,9 +8,11 @@
   .field {
 
     @include flex-column;
+    position: relative;
+
     align-items: center;
 
-    padding: $mid;
+    margin-bottom: $min;
 
     input {
       height: 50px;
@@ -20,12 +22,13 @@
 
       border: 1px solid $dark;
     }
+
+    .formError {
+      padding: $min;
+
+      font-size: $font-md;
+      color: $error;
+      text-align: center;
+    }
   }
-}
-
-.formError {
-  padding: $min;
-
-  font-size: $font-md;
-  color: $error;
 }

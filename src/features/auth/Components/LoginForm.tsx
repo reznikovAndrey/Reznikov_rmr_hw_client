@@ -35,7 +35,7 @@ const LoginForm: React.FC = () => {
           onChange={formik.handleChange}
           value={formik.values.email}
         />
-        {formik.errors.email && <span className={styles.formError}>{formik.errors.email}</span>}
+        <span className={styles.formError}>{formik.errors.email}</span>
       </div>
 
       <div className={styles.field}>
@@ -47,7 +47,7 @@ const LoginForm: React.FC = () => {
           onChange={formik.handleChange}
           value={formik.values.phone}
         />
-        {formik.errors.phone && <span className={styles.formError}>{formik.errors.phone}</span>}
+        <span className={styles.formError}>{formik.errors.phone}</span>
       </div>
 
       <div className={styles.field}>
@@ -59,7 +59,7 @@ const LoginForm: React.FC = () => {
           onChange={formik.handleChange}
           value={formik.values.password}
         />
-        {formik.errors.password && <span className={styles.formError}>{formik.errors.password}</span>}
+        <span className={styles.formError}>{formik.errors.password}</span>
       </div>
 
       <Button submit text="Go to kitty" />
