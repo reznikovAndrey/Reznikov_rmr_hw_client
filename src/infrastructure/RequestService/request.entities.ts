@@ -12,7 +12,17 @@ export type ServerSuccess = {
   status: SuccessStatus;
 };
 
+export type ServerSuccessContent = {
+  data: {
+    src: string;
+  };
+};
+
+export function isContent(response: ServerSuccess | ServerSuccessContent): response is ServerSuccessContent {
+  return (response as ServerSuccessContent).data !== undefined;
+}
+
 export type RequestServiceType = {
-  get: (url: string) => Promise<ServerSuccess>;
-  post: (url: string, body: FormValues) => Promise<ServerSuccess>;
+  get: (url: string) => Promise<ServerSuccess | ServerSuccessContent>;
+  post: (url: string, body: FormValues) => Promise<ServerSuccess | ServerSuccessContent>;
 };
