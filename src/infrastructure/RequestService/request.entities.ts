@@ -22,4 +22,5 @@ export type RequestServiceType = {
   login: (body: FormValues) => Promise<ServerSuccessStatus>;
   getKitty: () => Promise<ServerSuccessData<ServerKitty>>;
   getProfile: () => Promise<ServerSuccessData<UserFromServer>>;
+  logout: () => Promise<ServerSuccessStatus>;
 };

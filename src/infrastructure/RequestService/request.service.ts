@@ -28,6 +28,11 @@ const reguestService: RequestServiceType = {
       .get<ServerSuccessData<UserFromServer>>(routingService.profile())
       .then((response: AxiosResponse<ServerSuccessData<UserFromServer>>) => response.data);
   },
+  logout() {
+    return instance
+      .post<ServerSuccessStatus>(routingService.logout())
+      .then((response: AxiosResponse<ServerSuccessStatus>) => response.data);
+  },
 };
 
 export default reguestService;

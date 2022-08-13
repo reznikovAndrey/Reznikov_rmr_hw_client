@@ -4,6 +4,7 @@ enum RoutingEnum {
   login,
   profile,
   notFound,
+  logout,
 }
 
 type RoutingKeys = keyof typeof RoutingEnum;

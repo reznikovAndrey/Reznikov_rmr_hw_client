@@ -6,6 +6,7 @@ const routingService: Routing = {
   login: () => '/login',
   profile: () => '/profile',
   notFound: () => '*',
+  logout: () => '/logout',
 };
 
 export default routingService;
