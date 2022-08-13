@@ -14,4 +14,8 @@
   &:hover {
     outline: 2px solid $teal;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }

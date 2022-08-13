@@ -83,7 +83,7 @@ const LoginForm: React.FC = () => {
         <span className={styles.formError}>{authError || formik.errors.password}</span>
       </div>
 
-      <Button type="submit" text="Go to kitty" />
+      <Button type="submit" text="Go to kitty" disabled={formik.isSubmitting} />
     </form>
   );
 };
