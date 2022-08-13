@@ -13,6 +13,6 @@ export type ServerSuccessAnswerType = {
 };
 
 export type RequestServiceType = {
-  get: (url: string) => Promise<ServerSuccessAnswerType | ServerErrorAnswerType>;
-  post: (url: string, body: FormValues) => Promise<ServerSuccessAnswerType | ServerErrorAnswerType>;
+  get: (url: string) => Promise<ServerSuccessAnswerType>;
+  post: (url: string, body: FormValues) => Promise<ServerSuccessAnswerType>;
 };

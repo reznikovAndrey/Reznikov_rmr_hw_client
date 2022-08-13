@@ -1,4 +1,4 @@
-import { AxiosError } from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -32,8 +32,12 @@ const LoginForm: React.FC = () => {
           setLoggedIn(true);
           navigate(routingService.content(), { replace: true });
         })
-        .catch((err: AxiosError<ServerErrorAnswerType>) => {
-          setAuthError(err.response?.data.message);
+        .catch((err: AxiosError<ServerErrorAnswerType> | Error) => {
+          if (axios.isAxiosError(err)) {
+            setAuthError(err.response?.data.message);
+          } else {
+            throw new Error('Unhandled error', err);
+          }
         }),
   });
 
