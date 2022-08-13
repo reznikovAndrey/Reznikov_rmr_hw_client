@@ -1,13 +1,7 @@
-import { useEffect, useState } from 'react';
-
-import { requestService } from '../../../infrastructure/RequestService';
+import { useAuth } from '../../../features/auth/Hooks';
 
 const ContentScreen: React.FC = () => {
-  const [imgSrc, setImgSrc] = useState('');
-
-  useEffect(() => {
-    requestService.getKitty().then((response) => setImgSrc(response.data.src));
-  }, []);
+  const { imgSrc } = useAuth();
 
   return imgSrc ? <img src={imgSrc} alt="kitty" /> : null;
 };

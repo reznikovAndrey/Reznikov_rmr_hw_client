@@ -14,4 +14,6 @@ export type FormValues = User;
 export type AuthContextType = {
   loggedIn: boolean;
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  imgSrc: string;
+  userData: UserFromServer | null;
 };

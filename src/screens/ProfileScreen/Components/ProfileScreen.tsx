@@ -1,14 +1,7 @@
-import { useEffect, useState } from 'react';
-
-import { UserFromServer } from '../../../features/auth';
-import { requestService } from '../../../infrastructure/RequestService';
+import { useAuth } from '../../../features/auth/Hooks';
 
 const ProfileScreen: React.FC = () => {
-  const [userData, setUserData] = useState<UserFromServer | null>(null);
-
-  useEffect(() => {
-    requestService.getProfile().then((response) => setUserData(response.data));
-  }, []);
+  const { userData } = useAuth();
 
   return (
     <>
