@@ -8,6 +8,6 @@ enum RoutingEnum {
 
 type RoutingKeys = keyof typeof RoutingEnum;
 
-export type RoutingType = {
+export type Routing = {
   [index in RoutingKeys]: () => string;
 };

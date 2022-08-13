@@ -1,11 +1,8 @@
 import styles from './FooterItem.module.scss';
 
-type FooterItemProps = {
-  text: string;
-  href: string;
-};
+import { FooterItem as TFooterItem } from '../../layout.entities';
 
-const FooterItem: React.FC<FooterItemProps> = ({ text, href }) => (
+const FooterItem: React.FC<TFooterItem> = ({ text, href }) => (
   <a href={href} target="blank" className={styles.footerItem}>
     {text}
   </a>

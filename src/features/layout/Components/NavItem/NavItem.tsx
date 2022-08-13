@@ -2,12 +2,9 @@ import { Link } from 'react-router-dom';
 
 import styles from './NavItem.module.scss';
 
-type NavItemProps = {
-  text: string;
-  href: string;
-};
+import { NavItem as TNavItem } from '../../layout.entities';
 
-const NavItem: React.FC<NavItemProps> = ({ text, href }) => (
+const NavItem: React.FC<TNavItem> = ({ text, href }) => (
   <Link to={href} className={styles.navItem}>
     {text}
   </Link>

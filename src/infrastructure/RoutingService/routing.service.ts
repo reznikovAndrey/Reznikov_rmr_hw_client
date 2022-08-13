@@ -1,6 +1,6 @@
-import { RoutingType } from './routing.entities';
+import { Routing } from './routing.entities';
 
-const routingService: RoutingType = {
+const routingService: Routing = {
   root: () => '/',
   content: () => '/kitty',
   login: () => '/login',

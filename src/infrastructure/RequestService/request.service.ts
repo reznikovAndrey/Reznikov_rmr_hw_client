@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { RequestServiceType, ServerSuccessAnswerType } from './request.entities';
+import { RequestServiceType, ServerSuccess } from './request.entities';
 
 import { FormValues } from '../../features/auth';
 
@@ -11,11 +11,11 @@ const instance = axios.create({
   timeout: 5000,
 });
 
-const responseBody = (response: AxiosResponse): Promise<ServerSuccessAnswerType> => response.data;
+const responseBody = (response: AxiosResponse): Promise<ServerSuccess> => response.data;
 
 const reguestService: RequestServiceType = {
-  get: (url: string) => instance.get<ServerSuccessAnswerType>(url).then(responseBody),
-  post: (url: string, body: FormValues) => instance.post<ServerSuccessAnswerType>(url, body).then(responseBody),
+  get: (url: string) => instance.get<ServerSuccess>(url).then(responseBody),
+  post: (url: string, body: FormValues) => instance.post<ServerSuccess>(url, body).then(responseBody),
 };
 
 export default reguestService;

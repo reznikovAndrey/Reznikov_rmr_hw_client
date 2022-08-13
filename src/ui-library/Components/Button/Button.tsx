@@ -2,13 +2,13 @@ import styles from './Button.module.scss';
 
 type ButtonType = 'submit' | 'button';
 
-type ButtonTypes = {
+type Button = {
   text: string;
   type: ButtonType;
   disabled?: boolean;
 };
 
-const Button: React.FC<ButtonTypes> = ({ text, type, disabled = false }) => (
+const Button: React.FC<Button> = ({ text, type, disabled = false }) => (
   // eslint-disable-next-line react/button-has-type
   <button type={type} className={styles.button} disabled={disabled}>
     {text}

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './LoginForm.module.scss';
 
-import { requestService, ServerErrorAnswerType } from '../../../../infrastructure/RequestService';
+import { requestService, ServerError } from '../../../../infrastructure/RequestService';
 import { routingService } from '../../../../infrastructure/RoutingService';
 import { Button } from '../../../../ui-library/Components';
 import { FormValues } from '../../auth.entities';
@@ -32,7 +32,7 @@ const LoginForm: React.FC = () => {
           setLoggedIn(true);
           navigate(routingService.content(), { replace: true });
         })
-        .catch((err: AxiosError<ServerErrorAnswerType> | Error) => {
+        .catch((err: AxiosError<ServerError> | Error) => {
           if (axios.isAxiosError(err)) {
             setAuthError(err.response?.data.message);
           } else {
