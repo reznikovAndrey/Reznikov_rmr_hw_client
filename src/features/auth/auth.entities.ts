@@ -4,6 +4,11 @@ export type User = {
   password: string;
 };
 
+export type UserFromServer = Omit<User, 'password'> & {
+  id: string;
+  name: string;
+};
+
 export type FormValues = User;
 
 export type AuthContextType = {

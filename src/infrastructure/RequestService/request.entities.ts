@@ -1,4 +1,4 @@
-import { FormValues } from '../../features/auth';
+import { UserFromServer, FormValues } from '../../features/auth';
 
 export type ServerError = {
   statusCode: number;
@@ -6,23 +6,20 @@ export type ServerError = {
   message: string;
 };
 
-type SuccessStatus = 'OK!';
-
-export type ServerSuccess = {
-  status: SuccessStatus;
+export type ServerSuccessStatus = {
+  status: 'OK!';
 };
 
-export type ServerSuccessContent = {
-  data: {
-    src: string;
-  };
+export type ServerKitty = {
+  src: string;
 };
 
-export function isContent(response: ServerSuccess | ServerSuccessContent): response is ServerSuccessContent {
-  return (response as ServerSuccessContent).data !== undefined;
-}
+export type ServerSuccessData<T> = {
+  data: T;
+};
 
 export type RequestServiceType = {
-  get: (url: string) => Promise<ServerSuccess | ServerSuccessContent>;
-  post: (url: string, body: FormValues) => Promise<ServerSuccess | ServerSuccessContent>;
+  login: (body: FormValues) => Promise<ServerSuccessStatus>;
+  getKitty: () => Promise<ServerSuccessData<ServerKitty>>;
+  getProfile: () => Promise<ServerSuccessData<UserFromServer>>;
 };

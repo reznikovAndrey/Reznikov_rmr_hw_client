@@ -27,7 +27,7 @@ const LoginForm: React.FC = () => {
     validateOnChange: false,
     onSubmit: (values: FormValues) =>
       requestService
-        .post(routingService.login(), values)
+        .login(values)
         .then(() => {
           setLoggedIn(true);
           navigate(routingService.content(), { replace: true });
