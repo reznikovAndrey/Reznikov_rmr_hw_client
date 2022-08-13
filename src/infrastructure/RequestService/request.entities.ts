@@ -1,6 +1,18 @@
-import { FormValues, User } from '../../features/auth';
+import { FormValues } from '../../features/auth';
+
+export type ServerErrorAnswerType = {
+  statusCode: number;
+  error: string;
+  message: string;
+};
+
+type SuccessStatus = 'OK!';
+
+export type ServerSuccessAnswerType = {
+  status: SuccessStatus;
+};
 
 export type RequestServiceType = {
-  get: (url: string) => Promise<User>;
-  post: (url: string, body: FormValues) => Promise<User>;
+  get: (url: string) => Promise<ServerSuccessAnswerType | ServerErrorAnswerType>;
+  post: (url: string, body: FormValues) => Promise<ServerSuccessAnswerType | ServerErrorAnswerType>;
 };
