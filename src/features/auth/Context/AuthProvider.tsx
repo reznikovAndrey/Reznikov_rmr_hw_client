@@ -5,7 +5,7 @@ import AuthContext from './AuthContext';
 const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const value = useMemo(() => ({ loggedIn, setLoggedIn }), []);
+  const value = useMemo(() => ({ loggedIn, setLoggedIn }), [loggedIn]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
