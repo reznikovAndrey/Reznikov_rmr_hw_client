@@ -1,12 +1,22 @@
+import { AxiosError } from 'axios';
 import { useFormik } from 'formik';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './LoginForm.module.scss';
 
+import { requestService, ServerErrorAnswerType } from '../../../../infrastructure/RequestService';
+import { routingService } from '../../../../infrastructure/RoutingService';
 import { Button } from '../../../../ui-library/Components';
 import { FormValues } from '../../auth.entities';
+import { useAuth } from '../../Hooks';
 import { formValidationSchema } from '../../Validation';
 
 const LoginForm: React.FC = () => {
+  const { setLoggedIn } = useAuth();
+  const navigate = useNavigate();
+  const [authError, setAuthError] = useState<string | undefined>('');
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -15,9 +25,16 @@ const LoginForm: React.FC = () => {
     },
     validationSchema: formValidationSchema,
     validateOnChange: false,
-    onSubmit: async (values: FormValues) => {
-      console.log(values);
-    },
+    onSubmit: (values: FormValues) =>
+      requestService
+        .post(routingService.login(), values)
+        .then(() => {
+          setLoggedIn(true);
+          navigate(routingService.content(), { replace: true });
+        })
+        .catch((err: AxiosError<ServerErrorAnswerType>) => {
+          setAuthError(err.response?.data.message);
+        }),
   });
 
   return (
@@ -59,10 +76,10 @@ const LoginForm: React.FC = () => {
           onChange={formik.handleChange}
           value={formik.values.password}
         />
-        <span className={styles.formError}>{formik.errors.password}</span>
+        <span className={styles.formError}>{authError || formik.errors.password}</span>
       </div>
 
-      <Button type="button" text="Go to kitty" />
+      <Button type="submit" text="Go to kitty" />
     </form>
   );
 };
