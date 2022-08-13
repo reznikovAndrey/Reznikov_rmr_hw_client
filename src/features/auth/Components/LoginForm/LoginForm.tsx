@@ -41,8 +41,14 @@ const LoginForm: React.FC = () => {
         }),
   });
 
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    setAuthError('');
+    formik.handleSubmit();
+  };
+
   return (
-    <form onSubmit={formik.handleSubmit} className={styles.loginForm} autoComplete="on" noValidate>
+    <form onSubmit={handleSubmit} className={styles.loginForm} autoComplete="on" noValidate>
       <h1>Login</h1>
 
       <div className={styles.field}>
