@@ -1,10 +1,5 @@
 import { LoginForm } from '../../../features/auth';
-import { Layout } from '../../../features/layout';
 
-const LoginScreen: React.FC = () => (
-  <Layout>
-    <LoginForm />
-  </Layout>
-);
+const LoginScreen: React.FC = () => <LoginForm />;
 
 export default LoginScreen;

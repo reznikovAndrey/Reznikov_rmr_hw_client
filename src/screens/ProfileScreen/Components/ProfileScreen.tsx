@@ -1,9 +1,3 @@
-import { Layout } from '../../../features/layout';
-
-const ProfileScreen: React.FC = () => (
-  <Layout>
-    <h1>profile screen</h1>
-  </Layout>
-);
+const ProfileScreen: React.FC = () => <h1>profile screen</h1>;
 
 export default ProfileScreen;

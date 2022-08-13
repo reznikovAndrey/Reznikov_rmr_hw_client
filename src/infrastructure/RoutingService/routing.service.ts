@@ -1,7 +1,8 @@
 import { RoutingType } from './routing.entities';
 
 const routingService: RoutingType = {
-  content: () => '/',
+  root: () => '/',
+  content: () => '/kitty',
   login: () => '/login',
   profile: () => '/profile',
   notFound: () => '*',
