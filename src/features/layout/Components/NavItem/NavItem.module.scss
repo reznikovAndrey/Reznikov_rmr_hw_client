@@ -1,7 +1,12 @@
-@import "../../../../ui-library/colors", "../../../../ui-library/mixins", "../../../../ui-library/sizes";
+@import "../../../../ui-library/colors", "../../../../ui-library/mixins", "../../../../ui-library/sizes", "../../../../ui-library/responsive";
 
 .navItem {
-  padding: 0 $mid;
+
+  @include tablet {
+    padding: 0 $mid;
+  }
+
+  padding: 0 $min;
 
   color: $dark;
 
