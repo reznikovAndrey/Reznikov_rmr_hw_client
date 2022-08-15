@@ -64,6 +64,7 @@ const LoginForm: React.FC = () => {
           autoFocus
           onChange={formik.handleChange}
           value={formik.values.email}
+          type="email"
         />
         {formik.errors.email && <span className={styles.formError}>{t(formik.errors.email)}</span>}
       </div>
@@ -76,6 +77,7 @@ const LoginForm: React.FC = () => {
           aria-label={t('login.labels.phone')}
           onChange={formik.handleChange}
           value={formik.values.phone}
+          type="tel"
         />
         {formik.errors.phone && <span className={styles.formError}>{t(formik.errors.phone)}</span>}
       </div>
@@ -88,6 +90,7 @@ const LoginForm: React.FC = () => {
           aria-label={t('login.labels.password')}
           onChange={formik.handleChange}
           value={formik.values.password}
+          type="password"
         />
         {authError && <span className={styles.formError}>{t(authError)}</span>}
         {formik.errors.password && <span className={styles.formError}>{t(formik.errors.password)}</span>}
