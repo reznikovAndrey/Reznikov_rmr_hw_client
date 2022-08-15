@@ -1,8 +1,9 @@
+import axios, { AxiosError } from 'axios';
 import { FC, PropsWithChildren, useEffect, useMemo, useState } from 'react';
 
 import AuthContext from './AuthContext';
 
-import { contentRequestService } from '../../../infrastructure/RequestService';
+import { contentRequestService, ServerError } from '../../../infrastructure/RequestService';
 import { UserFromServer } from '../auth.entities';
 
 const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
@@ -11,16 +12,45 @@ const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const [userData, setUserData] = useState<UserFromServer | null>(null);
 
   useEffect(() => {
+    contentRequestService
+      .getProfile()
+      .then(() => setLoggedIn(true))
+      .catch((err: AxiosError<ServerError> | Error) => {
+        if (axios.isAxiosError(err)) {
+          if (err.response?.data.statusCode === 403) {
+            setLoggedIn(false);
+          } else {
+            console.error(err);
+          }
+        } else {
+          throw new Error('Unhandled error', err);
+        }
+      });
+  }, []);
+
+  useEffect(() => {
     if (loggedIn) {
       Promise.allSettled([
         contentRequestService
           .getKitty()
           .then((response) => setImgSrc(response.data.src))
-          .catch((err) => console.error(err)),
+          .catch((err: AxiosError<ServerError> | Error) => {
+            if (axios.isAxiosError(err)) {
+              console.error(err);
+            } else {
+              throw new Error('Unhandled error', err);
+            }
+          }),
         contentRequestService
           .getProfile()
           .then((response) => setUserData(response.data))
-          .catch((err) => console.error(err)),
+          .catch((err: AxiosError<ServerError> | Error) => {
+            if (axios.isAxiosError(err)) {
+              console.error(err);
+            } else {
+              throw new Error('Unhandled error', err);
+            }
+          }),
       ]);
     }
   }, [loggedIn]);
