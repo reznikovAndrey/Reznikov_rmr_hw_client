@@ -1,6 +1,6 @@
 enum RoutingEnum {
   root,
-  content,
+  kitty,
   login,
   profile,
   notFound,

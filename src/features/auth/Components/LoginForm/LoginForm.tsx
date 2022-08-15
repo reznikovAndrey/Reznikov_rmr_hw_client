@@ -31,7 +31,7 @@ const LoginForm: React.FC = () => {
         .login(values)
         .then(() => {
           setLoggedIn(true);
-          navigate(routingService.content(), { replace: true });
+          navigate(routingService.kitty(), { replace: true });
         })
         .catch((err: AxiosError<ServerError> | Error) => {
           if (axios.isAxiosError(err)) {

@@ -20,7 +20,7 @@ const reguestService: RequestServiceType = {
   },
   getKitty() {
     return instance
-      .get<ServerSuccessData<ServerKitty>>(routingService.content())
+      .get<ServerSuccessData<ServerKitty>>(routingService.kitty())
       .then((response: AxiosResponse<ServerSuccessData<ServerKitty>>) => response.data);
   },
   getProfile() {

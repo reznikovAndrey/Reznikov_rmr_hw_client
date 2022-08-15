@@ -2,7 +2,7 @@ import { Routing } from './routing.entities';
 
 const routingService: Routing = {
   root: () => '/',
-  content: () => '/kitty',
+  kitty: () => '/kitty',
   login: () => '/login',
   profile: () => '/profile',
   notFound: () => '*',
