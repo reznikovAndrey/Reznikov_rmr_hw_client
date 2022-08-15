@@ -18,9 +18,12 @@ export type ServerSuccessData<T> = {
   data: T;
 };
 
-export type RequestServiceType = {
+export type AuthRequestServiceType = {
   login: (body: FormValues) => Promise<ServerSuccessStatus>;
+  logout: () => Promise<ServerSuccessStatus>;
+};
+
+export type ContentRequestServiceType = {
   getKitty: () => Promise<ServerSuccessData<ServerKitty>>;
   getProfile: () => Promise<ServerSuccessData<UserFromServer>>;
-  logout: () => Promise<ServerSuccessStatus>;
 };

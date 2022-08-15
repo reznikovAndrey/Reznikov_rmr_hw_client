@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './LoginForm.module.scss';
 
-import { requestService, ServerError } from '../../../../infrastructure/RequestService';
+import { authRequestService, ServerError } from '../../../../infrastructure/RequestService';
 import { routingService } from '../../../../infrastructure/RoutingService';
 import { Button } from '../../../../ui-library/Components';
 import { FormValues } from '../../auth.entities';
@@ -27,7 +27,7 @@ const LoginForm: React.FC = () => {
     validationSchema: formValidationSchema,
     validateOnChange: false,
     onSubmit: (values: FormValues) =>
-      requestService
+      authRequestService
         .login(values)
         .then(() => {
           setLoggedIn(true);

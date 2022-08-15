@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 import { FooterItem } from './FooterItem';
 import { NavItem } from './NavItem';
 
-import { requestService, ServerError } from '../../../infrastructure/RequestService';
+import { authRequestService, ServerError } from '../../../infrastructure/RequestService';
 import { Content, Footer, Header, Navbar, Container, Button } from '../../../ui-library/Components';
 import { useAuth } from '../../auth/Hooks';
 import { getNavItems, getFooterItems } from '../Utils';
@@ -21,7 +21,7 @@ const Layout: React.FC = () => {
 
   const handleLogout = () => {
     setDisabled(true);
-    requestService
+    authRequestService
       .logout()
       .then(() => {
         setLoggedIn(false);

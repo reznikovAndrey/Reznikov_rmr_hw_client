@@ -2,7 +2,7 @@ import { FC, PropsWithChildren, useEffect, useMemo, useState } from 'react';
 
 import AuthContext from './AuthContext';
 
-import { requestService } from '../../../infrastructure/RequestService';
+import { contentRequestService } from '../../../infrastructure/RequestService';
 import { UserFromServer } from '../auth.entities';
 
 const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
@@ -13,11 +13,11 @@ const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   useEffect(() => {
     if (loggedIn) {
       Promise.allSettled([
-        requestService
+        contentRequestService
           .getKitty()
           .then((response) => setImgSrc(response.data.src))
           .catch((err) => console.error(err)),
-        requestService
+        contentRequestService
           .getProfile()
           .then((response) => setUserData(response.data))
           .catch((err) => console.error(err)),
