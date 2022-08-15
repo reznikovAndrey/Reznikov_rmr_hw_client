@@ -4,11 +4,11 @@ import * as Yup from 'yup';
 const passwordRegex = /^[a-zA-Z\d]*$/;
 
 export default Yup.object({
-  email: Yup.string().trim().email('Invalid email format').required('This field is required'),
+  email: Yup.string().trim().email('login.errors.email').required('login.errors.required'),
   phone: Yup.string()
     .trim()
-    .required('This field is required')
-    .test('check-phone', 'Only Russia and Mongolia phones allowed', (value) => {
+    .required('login.errors.required')
+    .test('check-phone', 'login.errors.phone', (value) => {
       if (!value) {
         return false;
       }
@@ -20,7 +20,7 @@ export default Yup.object({
     }),
   password: Yup.string()
     .trim()
-    .min(4, 'Minimum password length - 4 symbols')
-    .matches(passwordRegex, 'Password must contain only digits and letters')
-    .required('This field is required'),
+    .min(4, 'login.errors.password.length')
+    .matches(passwordRegex, 'login.errors.password.symbols')
+    .required('login.errors.required'),
 });

@@ -2,6 +2,6 @@ import routingService from '../../../infrastructure/RoutingService/routing.servi
 import { NavItems } from '../layout.entities';
 
 export default (): NavItems => [
-  { text: 'Kitten', href: routingService.content() },
-  { text: 'Profile', href: routingService.profile() },
+  { text: 'nav.links.kitten', href: routingService.content() },
+  { text: 'nav.links.profile', href: routingService.profile() },
 ];

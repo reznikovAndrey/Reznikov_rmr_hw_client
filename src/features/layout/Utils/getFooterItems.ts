@@ -1,6 +1,6 @@
 import { FooterItems } from '../layout.entities';
 
 export default (): FooterItems => [
-  { text: 'google', href: 'https://www.google.ru/' },
-  { text: 'yandex', href: 'https://yandex.ru/' },
+  { text: 'footer.links.google', href: 'https://www.google.ru/' },
+  { text: 'footer.links.yandex', href: 'https://yandex.ru/' },
 ];

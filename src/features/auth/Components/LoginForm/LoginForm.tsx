@@ -1,6 +1,7 @@
 import axios, { AxiosError } from 'axios';
 import { useFormik } from 'formik';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './LoginForm.module.scss';
@@ -47,49 +48,51 @@ const LoginForm: React.FC = () => {
     formik.handleSubmit();
   };
 
+  const { t } = useTranslation();
+
   return (
     <form onSubmit={handleSubmit} className={styles.loginForm} autoComplete="on" noValidate>
-      <h1>Login</h1>
+      <h1>{t('login.header')}</h1>
 
       <div className={styles.field}>
         <input
           id="email"
-          placeholder="Email"
+          placeholder={t('login.placeholders.email')}
           required
-          aria-label="email"
+          aria-label={t('login.labels.email')}
           // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus
           onChange={formik.handleChange}
           value={formik.values.email}
         />
-        <span className={styles.formError}>{formik.errors.email}</span>
+        <span className={styles.formError}>{t(formik.errors.email || '')}</span>
       </div>
 
       <div className={styles.field}>
         <input
           id="phone"
-          placeholder="Phone"
+          placeholder={t('login.placeholders.phone')}
           required
-          aria-label="phone"
+          aria-label={t('login.labels.phone')}
           onChange={formik.handleChange}
           value={formik.values.phone}
         />
-        <span className={styles.formError}>{formik.errors.phone}</span>
+        <span className={styles.formError}>{t(formik.errors.phone || '')}</span>
       </div>
 
       <div className={styles.field}>
         <input
           id="password"
-          placeholder="Password"
+          placeholder={t('login.placeholders.password')}
           required
-          aria-label="password"
+          aria-label={t('login.labels.password')}
           onChange={formik.handleChange}
           value={formik.values.password}
         />
-        <span className={styles.formError}>{authError || formik.errors.password}</span>
+        <span className={styles.formError}>{t(authError || '') || t(formik.errors.password || '')}</span>
       </div>
 
-      <Button type="submit" text="Go to kitty" disabled={formik.isSubmitting} />
+      <Button type="submit" text={t('login.btn')} disabled={formik.isSubmitting} />
     </form>
   );
 };

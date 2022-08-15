@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
 
 import { FooterItem } from './FooterItem';
@@ -35,6 +36,8 @@ const Layout: React.FC = () => {
       .finally(() => setDisabled(false));
   };
 
+  const { t } = useTranslation();
+
   return (
     <>
       <Header>
@@ -42,9 +45,9 @@ const Layout: React.FC = () => {
           {loggedIn && (
             <>
               {navItems.map(({ text, href }) => (
-                <NavItem key={text} text={text} href={href} />
+                <NavItem key={text} text={t(text)} href={href} />
               ))}
-              <Button type="button" text="Logout" action={handleLogout} disabled={disabled} />
+              <Button type="button" text={t('nav.logout')} action={handleLogout} disabled={disabled} />
             </>
           )}
         </Navbar>
@@ -55,7 +58,7 @@ const Layout: React.FC = () => {
         </Container>
       </Content>
       <Footer>
-        {loggedIn && footerItems.map(({ text, href }) => <FooterItem key={href} text={text} href={href} />)}
+        {loggedIn && footerItems.map(({ text, href }) => <FooterItem key={href} text={t(text)} href={href} />)}
       </Footer>
     </>
   );
