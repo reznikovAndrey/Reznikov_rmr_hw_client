@@ -65,7 +65,7 @@ const LoginForm: React.FC = () => {
           onChange={formik.handleChange}
           value={formik.values.email}
         />
-        <span className={styles.formError}>{t(formik.errors.email || '')}</span>
+        {formik.errors.email && <span className={styles.formError}>{t(formik.errors.email)}</span>}
       </div>
 
       <div className={styles.field}>
@@ -77,7 +77,7 @@ const LoginForm: React.FC = () => {
           onChange={formik.handleChange}
           value={formik.values.phone}
         />
-        <span className={styles.formError}>{t(formik.errors.phone || '')}</span>
+        {formik.errors.phone && <span className={styles.formError}>{t(formik.errors.phone)}</span>}
       </div>
 
       <div className={styles.field}>
@@ -89,7 +89,8 @@ const LoginForm: React.FC = () => {
           onChange={formik.handleChange}
           value={formik.values.password}
         />
-        <span className={styles.formError}>{t(authError || '') || t(formik.errors.password || '')}</span>
+        {authError && <span className={styles.formError}>{t(authError)}</span>}
+        {formik.errors.password && <span className={styles.formError}>{t(formik.errors.password)}</span>}
       </div>
 
       <Button type="submit" text={t('login.btn')} disabled={formik.isSubmitting} />
