@@ -1,5 +1,6 @@
-import { phone } from 'phone';
 import * as Yup from 'yup';
+
+import phoneValidator from './phoneValidator';
 
 const passwordRegex = /^[a-zA-Z\d]*$/;
 
@@ -8,16 +9,7 @@ export default Yup.object({
   phone: Yup.string()
     .trim()
     .required('login.errors.required')
-    .test('check-phone', 'login.errors.phone', (value) => {
-      if (!value) {
-        return false;
-      }
-
-      const { isValid: isValidRussia } = phone(value, { country: 'RU' });
-      const { isValid: isValidMongolia } = phone(value, { country: 'MN' });
-
-      return isValidRussia || isValidMongolia;
-    }),
+    .test('check-phone', 'login.errors.phone', phoneValidator),
   password: Yup.string()
     .trim()
     .min(4, 'login.errors.password.length')

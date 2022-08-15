@@ -1,4 +1,4 @@
-@import "../../../../ui-library/mixins", "../../../../ui-library/sizes", "../../../../ui-library/fonts", "../../../../ui-library/colors";
+@import "../../../../ui-library/mixins", "../../../../ui-library/sizes", "../../../../ui-library/fonts", "../../../../ui-library/colors", "../../../../ui-library/responsive";
 
 .loginForm {
 
@@ -12,7 +12,20 @@
 
     align-items: center;
 
-    margin-bottom: $min;
+    margin-bottom: $max;
+
+    &::after {
+      content: attr(data-after-content);
+
+      position: absolute;
+      bottom: -25px;
+
+      min-width: 100vw;
+
+      font-size: $font-md;
+      color: $error;
+      text-align: center;
+    }
 
     input {
       height: 50px;
@@ -21,14 +34,6 @@
       font-size: $font-md;
 
       border: 1px solid $dark;
-    }
-
-    .formError {
-      padding: $min;
-
-      font-size: $font-md;
-      color: $error;
-      text-align: center;
     }
   }
 }

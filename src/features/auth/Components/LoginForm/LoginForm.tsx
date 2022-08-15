@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { useFormik } from 'formik';
+import { phone as p } from 'phone';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -48,13 +49,21 @@ const LoginForm: React.FC = () => {
     formik.handleSubmit();
   };
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const regex = /^[^a-zA-Z]*$/;
+
+    if (e.target.value.match(regex)) {
+      formik.setFieldValue('phone', e.target.value);
+    }
+  };
+
   const { t } = useTranslation();
 
   return (
     <form onSubmit={handleSubmit} className={styles.loginForm} autoComplete="on" noValidate>
       <h1>{t('login.header')}</h1>
 
-      <div className={styles.field}>
+      <div className={styles.field} data-after-content={formik.errors.email && t(formik.errors.email)}>
         <input
           id="email"
           placeholder={t('login.placeholders.email')}
@@ -66,23 +75,24 @@ const LoginForm: React.FC = () => {
           value={formik.values.email}
           type="email"
         />
-        {formik.errors.email && <span className={styles.formError}>{t(formik.errors.email)}</span>}
       </div>
 
-      <div className={styles.field}>
+      <div className={styles.field} data-after-content={formik.errors.phone && t(formik.errors.phone)}>
         <input
           id="phone"
           placeholder={t('login.placeholders.phone')}
           required
           aria-label={t('login.labels.phone')}
-          onChange={formik.handleChange}
+          onChange={handlePhoneChange}
           value={formik.values.phone}
           type="tel"
         />
-        {formik.errors.phone && <span className={styles.formError}>{t(formik.errors.phone)}</span>}
       </div>
 
-      <div className={styles.field}>
+      <div
+        className={styles.field}
+        data-after-content={(authError && t(authError)) || (formik.errors.password && t(formik.errors.password))}
+      >
         <input
           id="password"
           placeholder={t('login.placeholders.password')}
@@ -92,8 +102,6 @@ const LoginForm: React.FC = () => {
           value={formik.values.password}
           type="password"
         />
-        {authError && <span className={styles.formError}>{t(authError)}</span>}
-        {formik.errors.password && <span className={styles.formError}>{t(formik.errors.password)}</span>}
       </div>
 
       <Button type="submit" text={t('login.btn')} disabled={formik.isSubmitting} />
