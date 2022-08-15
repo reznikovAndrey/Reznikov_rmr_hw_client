@@ -5,7 +5,11 @@ import { useAuth } from '../../../features/auth/Hooks';
 import { routingService } from '../../../infrastructure/RoutingService';
 
 const LoginScreen: React.FC = () => {
-  const { loggedIn } = useAuth();
+  const { loggedIn, userData } = useAuth();
+
+  if (!userData) {
+    return null;
+  }
 
   return loggedIn ? <Navigate to={routingService.kitty()} replace /> : <LoginForm />;
 };
