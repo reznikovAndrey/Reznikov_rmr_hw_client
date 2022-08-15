@@ -1,4 +1,4 @@
-import { Profile } from '../../../features/content/Components';
+import { Profile } from '../../../features/content';
 
 const ProfileScreen: React.FC = () => <Profile />;
 
