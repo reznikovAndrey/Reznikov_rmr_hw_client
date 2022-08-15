@@ -14,9 +14,16 @@
 
     margin-bottom: $max;
 
-    &::after {
-      content: attr(data-after-content);
+    input {
+      height: 50px;
+      padding: $mid;
 
+      font-size: $font-md;
+
+      border: 1px solid $dark;
+    }
+
+    .error {
       position: absolute;
       bottom: -25px;
 
@@ -25,15 +32,6 @@
       font-size: $font-md;
       color: $error;
       text-align: center;
-    }
-
-    input {
-      height: 50px;
-      padding: $mid;
-
-      font-size: $font-md;
-
-      border: 1px solid $dark;
     }
   }
 }

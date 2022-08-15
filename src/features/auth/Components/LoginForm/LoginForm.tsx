@@ -63,7 +63,7 @@ const LoginForm: React.FC = () => {
     <form onSubmit={handleSubmit} className={styles.loginForm} autoComplete="on" noValidate>
       <h1>{t('login.header')}</h1>
 
-      <div className={styles.field} data-after-content={formik.errors.email && t(formik.errors.email)}>
+      <div className={styles.field}>
         <input
           id="email"
           placeholder={t('login.placeholders.email')}
@@ -75,9 +75,10 @@ const LoginForm: React.FC = () => {
           value={formik.values.email}
           type="email"
         />
+        {formik.errors.email && <span className={styles.error}>{t(formik.errors.email)}</span>}
       </div>
 
-      <div className={styles.field} data-after-content={formik.errors.phone && t(formik.errors.phone)}>
+      <div className={styles.field}>
         <input
           id="phone"
           placeholder={t('login.placeholders.phone')}
@@ -87,12 +88,10 @@ const LoginForm: React.FC = () => {
           value={formik.values.phone}
           type="tel"
         />
+        {formik.errors.phone && <span className={styles.error}>{t(formik.errors.phone)}</span>}
       </div>
 
-      <div
-        className={styles.field}
-        data-after-content={(authError && t(authError)) || (formik.errors.password && t(formik.errors.password))}
-      >
+      <div className={styles.field}>
         <input
           id="password"
           placeholder={t('login.placeholders.password')}
@@ -102,6 +101,8 @@ const LoginForm: React.FC = () => {
           value={formik.values.password}
           type="password"
         />
+        {(authError && <span className={styles.error}>{t(authError)}</span>) ||
+          (formik.errors.password && <span className={styles.error}>{t(formik.errors.password)}</span>)}
       </div>
 
       <Button type="submit" text={t('login.btn')} disabled={formik.isSubmitting} />
