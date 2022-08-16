@@ -1,0 +1,26 @@
+@import "../../mixins", "../../colors";
+
+.loader {
+
+  @include flex-column;
+  cursor: wait;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: $loader-background;
+
+  .title {
+
+    @include reset;
+    color: $teal;
+  }
+}

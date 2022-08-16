@@ -2,12 +2,12 @@ import axios, { AxiosError } from 'axios';
 import { FC, PropsWithChildren, useEffect, useMemo, useState, createContext } from 'react';
 
 import { contentRequestService, ServerError } from '../../../infrastructure/RequestService';
-import { UserFromServer, AuthContextType } from '../auth.entities';
+import { UserFromServer, AuthContextType, UserStatus } from '../auth.entities';
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState<UserStatus>(null);
   const [imgSrc, setImgSrc] = useState('');
   const [userData, setUserData] = useState<UserFromServer | null>(null);
 

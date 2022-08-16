@@ -8,7 +8,7 @@ import { NavItem } from './NavItem';
 
 import { authRequestService, ServerError } from '../../../infrastructure/RequestService';
 import { routingService } from '../../../infrastructure/RoutingService';
-import { Content, Footer, Header, Navbar, Container, Button } from '../../../ui-library/Components';
+import { Content, Footer, Header, Navbar, Container, Button, Loader } from '../../../ui-library/Components';
 import { useAuth } from '../../auth/Hooks';
 import { getNavItems, getFooterItems } from '../Utils';
 
@@ -39,7 +39,7 @@ const Layout: React.FC = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     if (pathname === routingService.root()) {
-      navigate(routingService.kitty(), { replace: true });
+      navigate(loggedIn ? routingService.kitty() : routingService.login(), { replace: true });
     }
   }, [pathname]);
 
@@ -60,9 +60,7 @@ const Layout: React.FC = () => {
         </Navbar>
       </Header>
       <Content>
-        <Container>
-          <Outlet />
-        </Container>
+        <Container>{loggedIn === null || disabled ? <Loader /> : <Outlet />}</Container>
       </Content>
       <Footer>
         {loggedIn && footerItems.map(({ text, href }) => <FooterItem key={href} text={t(text)} href={href} />)}
