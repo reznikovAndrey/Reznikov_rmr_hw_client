@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { useFormik } from 'formik';
+import phone from 'phone';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -44,6 +45,12 @@ const LoginForm: React.FC = () => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+
+    const { phoneNumber } = phone(formik.values.phone);
+    if (phoneNumber) {
+      formik.setFieldValue('phone', phoneNumber);
+    }
+
     setAuthError('');
     formik.handleSubmit();
   };
