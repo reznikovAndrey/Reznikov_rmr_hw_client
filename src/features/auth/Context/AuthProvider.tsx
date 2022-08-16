@@ -7,7 +7,7 @@ import { UserFromServer, AuthContextType } from '../auth.entities';
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [imgSrc, setImgSrc] = useState('');
   const [userData, setUserData] = useState<UserFromServer | null>(null);
 

@@ -12,7 +12,7 @@ const Navbar: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <nav className={navClasses}>
-      <Link to={routingService.kitty()} className={styles.logo}>
+      <Link to={routingService.root()} className={styles.logo}>
         <Logo />
       </Link>
       {children}

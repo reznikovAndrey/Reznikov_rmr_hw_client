@@ -16,8 +16,8 @@ const AppRoutes: React.FC = () => (
       <Route path={routingService.root()} element={<PrivateScreen />}>
         <Route path={routingService.profile()} element={<ProfileScreen />} />
         <Route path={routingService.kitty()} element={<KittyScreen />} />
-        <Route path={routingService.notFound()} element={<NotFoundScreen />} />
       </Route>
+      <Route path={routingService.notFound()} element={<NotFoundScreen />} />
     </Route>
   </Routes>
 );
