@@ -17,7 +17,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
       .then(() => setLoggedIn(true))
       .catch((err: AxiosError<ServerError> | Error) => {
         if (axios.isAxiosError(err)) {
-          if (err.response?.data.statusCode === 403) {
+          if (err.response?.data.statusCode === 401) {
             setLoggedIn(false);
           } else {
             console.error(err);

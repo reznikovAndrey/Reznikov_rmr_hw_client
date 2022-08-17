@@ -32,6 +32,7 @@
     "lint:css:fix": "npm run lint:css -- --fix --allow-empty-input",
     "prepare": "husky install"
   },
+  "proxy": "http://localhost:8080",
   "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx}": [
       "npm run lint:es:fix",
