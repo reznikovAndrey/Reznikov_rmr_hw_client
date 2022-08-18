@@ -67,7 +67,7 @@ const LoginForm: React.FC = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className={styles.loginForm} autoComplete="on" noValidate>
+      <form onSubmit={handleSubmit} className={styles.loginForm} noValidate>
         <h1>{t('login.header')}</h1>
 
         <div className={styles.field}>
@@ -81,6 +81,7 @@ const LoginForm: React.FC = () => {
             onChange={formik.handleChange}
             value={formik.values.email}
             type="email"
+            autoComplete="email"
           />
           {formik.errors.email && <span className={styles.error}>{t(formik.errors.email)}</span>}
         </div>
@@ -94,6 +95,7 @@ const LoginForm: React.FC = () => {
             onChange={handlePhoneChange}
             value={formik.values.phone}
             type="tel"
+            autoComplete="tel"
           />
           {formik.errors.phone && <span className={styles.error}>{t(formik.errors.phone)}</span>}
         </div>
@@ -107,6 +109,7 @@ const LoginForm: React.FC = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
             type="password"
+            autoComplete="current-password"
           />
           {(authError && <span className={styles.error}>{t(authError)}</span>) ||
             (formik.errors.password && <span className={styles.error}>{t(formik.errors.password)}</span>)}
