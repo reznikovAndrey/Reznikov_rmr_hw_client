@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useState } from 'react';
+import React, { FC, PropsWithChildren, useEffect, useRef, useState } from 'react';
 
 import styles from './Dropdown.module.scss';
 
@@ -6,14 +6,27 @@ import { ReactComponent as DropdownIcon } from '../../Icons/dropdown.svg';
 
 const Dropdown: FC<PropsWithChildren> = ({ children }) => {
   const [show, setShow] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const handleIconClick = () => setShow(!show);
   const handleMenuItemClick = () => setShow(false);
+  const handleOutsideMenuClick = (e: MouseEvent | TouchEvent) => {
+    if (show && !dropdownRef.current?.contains(e.target as Node)) {
+      setShow(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideMenuClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideMenuClick);
+    };
+  }, [show]);
 
   const items = React.Children.toArray(children);
 
   return (
-    <div className={styles.dropdown}>
+    <div className={styles.dropdown} ref={dropdownRef}>
       <DropdownIcon className={styles.icon} onClick={handleIconClick} />
       {show && (
         <ul className={styles.dropdownList}>
