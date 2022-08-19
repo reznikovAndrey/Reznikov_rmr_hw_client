@@ -27,3 +27,11 @@
   color: $teal;
   text-decoration: none;
 }
+
+@mixin hidden {
+  display: none;
+}
+
+@mixin show {
+  display: initial;
+}

@@ -6,6 +6,7 @@ import styles from './Navbar.module.scss';
 
 import routingService from '../../../infrastructure/RoutingService/routing.service';
 import { ReactComponent as Logo } from '../../Icons/typescript.svg';
+import { Dropdown } from '../Dropdown';
 
 const Navbar: FC<PropsWithChildren> = ({ children }) => {
   const navClasses = cn(styles.navbar, styles.container);
@@ -15,7 +16,8 @@ const Navbar: FC<PropsWithChildren> = ({ children }) => {
       <Link to={routingService.root()} className={styles.logo}>
         <Logo />
       </Link>
-      {children}
+      <Dropdown>{children}</Dropdown>
+      <div className={styles.menu}>{children}</div>
     </nav>
   );
 };
