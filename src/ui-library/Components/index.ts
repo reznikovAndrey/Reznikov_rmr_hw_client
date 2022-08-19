@@ -5,3 +5,4 @@ export { Navbar } from './Navbar';
 export { Container } from './Container';
 export { Button } from './Button';
 export { Loader } from './Loader';
+export { Dropdown } from './Dropdown';

@@ -12,6 +12,7 @@ const Kitty: React.FC = () => {
 
   return (
     <>
+      <h1 className={styles.header}>Okay, here is your cat</h1>
       <img src={imgSrc} alt="kitty" className={styles.kitty} onLoad={() => setShow(true)} />
       {!show && <Loader />}
     </>

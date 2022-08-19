@@ -1,0 +1,38 @@
+@import "../../responsive", "../../mixins", "../../colors", "../../sizes";
+
+.dropdown {
+
+  @include tablet {
+
+    @include hidden;
+  }
+  position: relative;
+
+  .icon {
+    cursor: pointer;
+  }
+
+  .dropdownList {
+
+    @include reset;
+    position: absolute;
+    right: 0;
+
+    text-align: center;
+    list-style: none;
+
+    background-color: $dark;
+
+    * {
+      color: $white;
+    }
+
+    .item {
+      padding: $mid;
+
+      &:last-of-type {
+        padding: 0;
+      }
+    }
+  }
+}

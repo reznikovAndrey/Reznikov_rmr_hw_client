@@ -49,14 +49,8 @@ const Layout: React.FC = () => {
     <>
       <Header>
         <Navbar>
-          {loggedIn && (
-            <>
-              {navItems.map(({ text, href }) => (
-                <NavItem key={text} text={t(text)} href={href} />
-              ))}
-              <Button type="button" text={t('nav.logout')} action={handleLogout} disabled={disabled} />
-            </>
-          )}
+          {navItems.map(({ text, href }) => loggedIn && <NavItem key={text} text={t(text)} href={href} />)}
+          {loggedIn && <Button type="button" text={t('nav.logout')} action={handleLogout} disabled={disabled} />}
         </Navbar>
       </Header>
       <Content>
