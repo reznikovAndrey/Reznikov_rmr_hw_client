@@ -1,4 +1,5 @@
-@import "../../../../ui-library/mixins", "../../../../ui-library/sizes", "../../../../ui-library/fonts", "../../../../ui-library/colors", "../../../../ui-library/responsive";
+@import "../../../../ui-library/mixins", "../../../../ui-library/sizes", "../../../../ui-library/fonts",
+  "../../../../ui-library/colors", "../../../../ui-library/responsive";
 
 .loginForm {
 
@@ -21,6 +22,10 @@
       font-size: $font-md;
 
       border: 1px solid $dark;
+
+      &.inputError {
+        border-color: $error;
+      }
     }
 
     .error {
