@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
@@ -17,10 +17,10 @@ const Layout: React.FC = () => {
 
   const [disabled, setDisabled] = useState(false);
 
-  const navItems = getNavItems();
-  const footerItems = getFooterItems();
+  const navItems = useMemo(getNavItems, []);
+  const footerItems = useMemo(getFooterItems, []);
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
     setDisabled(true);
     authRequestService
       .logout()
@@ -33,7 +33,7 @@ const Layout: React.FC = () => {
         }
       })
       .finally(() => setDisabled(false));
-  };
+  }, []);
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -45,20 +45,34 @@ const Layout: React.FC = () => {
 
   const { t } = useTranslation();
 
-  return (
-    <>
+  const memoizedNav = useMemo(
+    () => (
       <Header>
         <Navbar>
-          {navItems.map(({ text, href }) => loggedIn && <NavItem key={text} text={t(text)} href={href} />)}
+          {loggedIn && navItems.map(({ text, href }) => <NavItem key={text} text={t(text)} href={href} />)}
           {loggedIn && <Button type="button" text={t('nav.logout')} action={handleLogout} disabled={disabled} />}
         </Navbar>
       </Header>
-      <Content>
-        <Container>{loggedIn === null || disabled ? <Loader /> : <Outlet />}</Container>
-      </Content>
+    ),
+    [loggedIn],
+  );
+
+  const memoizedFooter = useMemo(
+    () => (
       <Footer>
         {loggedIn && footerItems.map(({ text, href }) => <FooterItem key={href} text={t(text)} href={href} />)}
       </Footer>
+    ),
+    [loggedIn],
+  );
+
+  return (
+    <>
+      {memoizedNav}
+      <Content>
+        <Container>{loggedIn === null || disabled ? <Loader /> : <Outlet />}</Container>
+      </Content>
+      {memoizedFooter}
     </>
   );
 };
