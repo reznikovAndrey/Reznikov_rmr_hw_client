@@ -30,28 +30,17 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     if (loggedIn) {
-      Promise.allSettled([
-        contentRequestService
-          .getKitty()
-          .then((response) => setImgSrc(response.data.src))
-          .catch((err: AxiosError<ServerError> | Error) => {
-            if (axios.isAxiosError(err)) {
-              console.error(err);
-            } else {
-              throw new Error('Unhandled error', err);
-            }
-          }),
-        contentRequestService
-          .getProfile()
-          .then((response) => setUserData(response.data))
-          .catch((err: AxiosError<ServerError> | Error) => {
-            if (axios.isAxiosError(err)) {
-              console.error(err);
-            } else {
-              throw new Error('Unhandled error', err);
-            }
-          }),
+      const promises = Promise.all([
+        contentRequestService.getKitty().then((response) => setImgSrc(response.data.src)),
+        contentRequestService.getProfile().then((response) => setUserData(response.data)),
       ]);
+      promises.catch((err: AxiosError<ServerError> | Error) => {
+        if (axios.isAxiosError(err)) {
+          console.error(err);
+        } else {
+          throw new Error('Unhandled error', err);
+        }
+      });
     }
   }, [loggedIn]);
 
