@@ -82,6 +82,7 @@ const LoginForm: React.FC = () => {
             value={formik.values.email}
             type="email"
             autoComplete="email"
+            className={formik.errors.email ? styles.inputError : ''}
           />
           {formik.errors.email && <span className={styles.error}>{t(formik.errors.email)}</span>}
         </div>
@@ -96,6 +97,7 @@ const LoginForm: React.FC = () => {
             value={formik.values.phone}
             type="tel"
             autoComplete="tel"
+            className={formik.errors.phone ? styles.inputError : ''}
           />
           {formik.errors.phone && <span className={styles.error}>{t(formik.errors.phone)}</span>}
         </div>
@@ -110,6 +112,7 @@ const LoginForm: React.FC = () => {
             value={formik.values.password}
             type="password"
             autoComplete="current-password"
+            className={formik.errors.password ? styles.inputError : ''}
           />
           {(authError && <span className={styles.error}>{t(authError)}</span>) ||
             (formik.errors.password && <span className={styles.error}>{t(formik.errors.password)}</span>)}
