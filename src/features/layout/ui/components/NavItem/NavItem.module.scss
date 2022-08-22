@@ -1,0 +1,22 @@
+@import "../../../../../ui-library/colors", "../../../../../ui-library/mixins", "../../../../../ui-library/sizes",
+  "../../../../../ui-library/responsive";
+
+.navItem {
+
+  @include tablet {
+    padding: 0 $mid;
+  }
+
+  padding: 0 $min;
+
+  color: $dark;
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  &:hover {
+
+    @include hover-link;
+  }
+}

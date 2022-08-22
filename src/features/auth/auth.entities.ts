@@ -1,3 +1,5 @@
+import { ServerSuccessStatus } from '../../infrastructure/requestService';
+
 export type User = {
   email: string;
   phone: string;
@@ -18,4 +20,9 @@ export type AuthContextType = {
   setLoggedIn: React.Dispatch<React.SetStateAction<UserStatus>>;
   imgSrc: string;
   userData: UserFromServer | null;
+};
+
+export type AuthRequestServiceType = {
+  login: (body: FormValues) => Promise<ServerSuccessStatus>;
+  logout: () => Promise<ServerSuccessStatus>;
 };

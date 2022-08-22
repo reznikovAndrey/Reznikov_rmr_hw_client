@@ -1,1 +1,1 @@
-export { NotFoundScreen } from './Components';
+export { default as NotFoundScreen } from './NotFoundScreen';
