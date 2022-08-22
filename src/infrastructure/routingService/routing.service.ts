@@ -1,12 +1,12 @@
 import { Routing } from './routing.entities';
 
 const routingService: Routing = {
-  root: () => '/',
-  kitty: () => '/kitty',
-  login: () => '/login',
-  profile: () => '/profile',
-  notFound: () => '*',
-  logout: () => '/logout',
+  ROOT: '/',
+  KITTY: '/kitty',
+  LOGIN: '/login',
+  PROFILE: '/profile',
+  NOT_FOUND: '*',
+  LOGOUT: '/logout',
 };
 
 export default routingService;

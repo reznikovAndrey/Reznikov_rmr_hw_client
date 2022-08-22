@@ -8,12 +8,12 @@ import { ContentRequestServiceType, ServerKitty, ServerSuccessData } from '../co
 const contentRequestService: ContentRequestServiceType = {
   getKitty() {
     return requestService
-      .get<ServerSuccessData<ServerKitty>>(routingService.kitty())
+      .get<ServerSuccessData<ServerKitty>>(routingService.KITTY)
       .then((response: AxiosResponse<ServerSuccessData<ServerKitty>>) => response.data);
   },
   getProfile() {
     return requestService
-      .get<ServerSuccessData<UserFromServer>>(routingService.profile())
+      .get<ServerSuccessData<UserFromServer>>(routingService.PROFILE)
       .then((response: AxiosResponse<ServerSuccessData<UserFromServer>>) => response.data);
   },
 };

@@ -38,8 +38,8 @@ const Layout: React.FC = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   useEffect(() => {
-    if (pathname === routingService.root()) {
-      navigate(loggedIn ? routingService.kitty() : routingService.login(), { replace: true });
+    if (pathname === routingService.ROOT) {
+      navigate(loggedIn ? routingService.KITTY : routingService.LOGIN, { replace: true });
     }
   }, [pathname]);
 

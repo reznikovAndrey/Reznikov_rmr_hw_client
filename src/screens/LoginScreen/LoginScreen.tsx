@@ -6,7 +6,7 @@ import { routingService } from '../../infrastructure/routingService';
 const LoginScreen: React.FC = () => {
   const { loggedIn } = useAuth();
 
-  return loggedIn ? <Navigate to={routingService.kitty()} replace /> : <LoginForm />;
+  return loggedIn ? <Navigate to={routingService.KITTY} replace /> : <LoginForm />;
 };
 
 export default LoginScreen;

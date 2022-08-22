@@ -6,7 +6,7 @@ import { routingService } from '../../infrastructure/routingService';
 const PrivateScreen: React.FC = () => {
   const { loggedIn } = useAuth();
 
-  return loggedIn ? <Outlet /> : <Navigate to={routingService.login()} replace />;
+  return loggedIn ? <Outlet /> : <Navigate to={routingService.LOGIN} replace />;
 };
 
 export default PrivateScreen;

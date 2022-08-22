@@ -7,12 +7,12 @@ import { AuthRequestServiceType } from '../auth.entities';
 const authRequestService: AuthRequestServiceType = {
   login(body) {
     return requestService
-      .post<ServerSuccessStatus>(routingService.login(), body)
+      .post<ServerSuccessStatus>(routingService.LOGIN, body)
       .then((response: AxiosResponse<ServerSuccessStatus>) => response.data);
   },
   logout() {
     return requestService
-      .post<ServerSuccessStatus>(routingService.logout())
+      .post<ServerSuccessStatus>(routingService.LOGOUT)
       .then((response: AxiosResponse<ServerSuccessStatus>) => response.data);
   },
 };
