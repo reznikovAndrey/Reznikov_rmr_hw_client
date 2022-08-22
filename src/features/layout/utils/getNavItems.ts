@@ -1,4 +1,4 @@
-import routingService from '../../../infrastructure/RoutingService/routing.service';
+import { routingService } from '../../../infrastructure/routingService';
 import { NavItems } from '../layout.entities';
 
 export default (): NavItems => [

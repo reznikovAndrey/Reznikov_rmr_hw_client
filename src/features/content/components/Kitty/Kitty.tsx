@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import styles from './Kitty.module.scss';
 
-import { Loader } from '../../../../ui-library/Components';
+import { Loader } from '../../../../ui-library/components';
 import { useAuth } from '../../../auth';
 
 const Kitty: React.FC = () => {

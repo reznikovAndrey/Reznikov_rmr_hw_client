@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 import styles from './Navbar.module.scss';
 
-import routingService from '../../../infrastructure/RoutingService/routing.service';
-import { ReactComponent as Logo } from '../../Icons/typescript.svg';
+import { routingService } from '../../../infrastructure/routingService';
+import { ReactComponent as Logo } from '../../icons/typescript.svg';
 import { Dropdown } from '../Dropdown';
 
 const Navbar: FC<PropsWithChildren> = ({ children }) => {

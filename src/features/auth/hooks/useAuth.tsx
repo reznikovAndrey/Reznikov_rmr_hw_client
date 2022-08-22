@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { AuthContextType } from '../auth.entities';
-import { AuthContext } from '../Context';
+import { AuthContext } from '../context';
 
 export default (): AuthContextType | never => {
   const value = useContext(AuthContext);

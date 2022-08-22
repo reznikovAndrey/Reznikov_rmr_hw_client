@@ -1,8 +1,7 @@
 import { AxiosResponse } from 'axios';
 
-import { requestService } from '../../../infrastructure/RequestService';
-import { ServerSuccessStatus } from '../../../infrastructure/RequestService/request.entities';
-import { routingService } from '../../../infrastructure/RoutingService';
+import { requestService, ServerSuccessStatus } from '../../../infrastructure/requestService';
+import { routingService } from '../../../infrastructure/routingService';
 import { AuthRequestServiceType } from '../auth.entities';
 
 const authRequestService: AuthRequestServiceType = {

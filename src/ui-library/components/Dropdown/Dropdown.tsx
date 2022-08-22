@@ -2,7 +2,7 @@ import React, { FC, PropsWithChildren, useEffect, useRef, useState } from 'react
 
 import styles from './Dropdown.module.scss';
 
-import { ReactComponent as DropdownIcon } from '../../Icons/dropdown.svg';
+import { ReactComponent as DropdownIcon } from '../../icons/dropdown.svg';
 
 const Dropdown: FC<PropsWithChildren> = ({ children }) => {
   const [show, setShow] = useState(false);

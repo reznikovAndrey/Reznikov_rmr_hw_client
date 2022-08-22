@@ -1,1 +1,1 @@
-export { PrivateScreen } from './Components';
+export { default as PrivateScreen } from './PrivateScreen';

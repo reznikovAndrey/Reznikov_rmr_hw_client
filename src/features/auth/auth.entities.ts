@@ -1,4 +1,4 @@
-import { ServerSuccessStatus } from '../../infrastructure/RequestService/request.entities';
+import { ServerSuccessStatus } from '../../infrastructure/requestService';
 
 export type User = {
   email: string;

@@ -7,13 +7,13 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './LoginForm.module.scss';
 
-import { ServerError } from '../../../../infrastructure/RequestService';
-import { routingService } from '../../../../infrastructure/RoutingService';
-import { Button, Loader } from '../../../../ui-library/Components';
+import { ServerError } from '../../../../infrastructure/requestService';
+import { routingService } from '../../../../infrastructure/routingService';
+import { Button, Loader } from '../../../../ui-library/components';
 import { FormValues } from '../../auth.entities';
-import { useAuth } from '../../Hooks';
-import { authRequestService } from '../../RequestService';
-import { formValidationSchema } from '../../Validation';
+import { useAuth } from '../../hooks';
+import { authRequestService } from '../../requestService';
+import { formValidationSchema } from '../../validation';
 
 const LoginForm: React.FC = () => {
   const { setLoggedIn } = useAuth();

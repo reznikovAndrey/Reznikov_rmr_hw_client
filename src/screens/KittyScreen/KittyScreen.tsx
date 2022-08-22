@@ -1,4 +1,4 @@
-import { Kitty } from '../../../features/content';
+import { Kitty } from '../../features/content';
 
 const KittyScreen: React.FC = () => <Kitty />;
 

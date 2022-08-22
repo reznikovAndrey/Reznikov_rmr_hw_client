@@ -1,1 +1,1 @@
-export * from './Components';
+export { default as LoginScreen } from './LoginScreen';

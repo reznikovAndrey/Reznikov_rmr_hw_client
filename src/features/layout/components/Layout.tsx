@@ -6,11 +6,11 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { FooterItem } from './FooterItem';
 import { NavItem } from './NavItem';
 
-import { ServerError } from '../../../infrastructure/RequestService';
-import { routingService } from '../../../infrastructure/RoutingService';
-import { Content, Footer, Header, Navbar, Container, Button, Loader } from '../../../ui-library/Components';
+import { ServerError } from '../../../infrastructure/requestService';
+import { routingService } from '../../../infrastructure/routingService';
+import { Content, Footer, Header, Navbar, Container, Button, Loader } from '../../../ui-library/components';
 import { authRequestService, useAuth } from '../../auth';
-import { getNavItems, getFooterItems } from '../Utils';
+import { getNavItems, getFooterItems } from '../utils';
 
 const Layout: React.FC = () => {
   const { loggedIn, setLoggedIn } = useAuth();

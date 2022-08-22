@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 
-import { requestService } from '../../../infrastructure/RequestService';
-import { routingService } from '../../../infrastructure/RoutingService';
+import { requestService } from '../../../infrastructure/requestService';
+import { routingService } from '../../../infrastructure/routingService';
 import { UserFromServer } from '../../auth';
 import { ContentRequestServiceType, ServerKitty, ServerSuccessData } from '../content.entities';
 
