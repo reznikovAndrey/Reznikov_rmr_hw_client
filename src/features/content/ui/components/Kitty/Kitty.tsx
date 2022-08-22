@@ -13,7 +13,7 @@ const Kitty: React.FC = () => {
   return imgSrc ? (
     <>
       {show ? <h1 className={styles.header}>Okay, here is your cat</h1> : <Loader />}
-      <img src={imgSrc} alt="kitty" className={styles.kitty} onLoad={() => setShow(true)} />
+      <img src={imgSrc} alt="kitty" className={styles.kitty} onLoad={() => setShow(true)} loading="lazy" />
     </>
   ) : (
     <Loader />
