@@ -1,4 +1,4 @@
-import { FooterItems } from '../layout.entities';
+import { FooterItems } from '../../../layout.entities';
 
 export default (): FooterItems => [
   { text: 'footer.links.google', href: 'https://www.google.ru/' },
