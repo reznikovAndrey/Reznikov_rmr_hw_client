@@ -1,22 +1,18 @@
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 
-import { API_URL } from '../../../utils/constants';
-import { routingService } from '../../RoutingService';
-import { AuthRequestServiceType, ServerSuccessStatus } from '../request.entities';
-
-const instance = axios.create({
-  baseURL: API_URL,
-  timeout: 5000,
-});
+import { requestService } from '../../../infrastructure/RequestService';
+import { ServerSuccessStatus } from '../../../infrastructure/RequestService/request.entities';
+import { routingService } from '../../../infrastructure/RoutingService';
+import { AuthRequestServiceType } from '../auth.entities';
 
 const authRequestService: AuthRequestServiceType = {
   login(body) {
-    return instance
+    return requestService
       .post<ServerSuccessStatus>(routingService.login(), body)
       .then((response: AxiosResponse<ServerSuccessStatus>) => response.data);
   },
   logout() {
-    return instance
+    return requestService
       .post<ServerSuccessStatus>(routingService.logout())
       .then((response: AxiosResponse<ServerSuccessStatus>) => response.data);
   },

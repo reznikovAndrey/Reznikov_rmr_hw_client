@@ -7,11 +7,12 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './LoginForm.module.scss';
 
-import { authRequestService, ServerError } from '../../../../infrastructure/RequestService';
+import { ServerError } from '../../../../infrastructure/RequestService';
 import { routingService } from '../../../../infrastructure/RoutingService';
 import { Button, Loader } from '../../../../ui-library/Components';
 import { FormValues } from '../../auth.entities';
 import { useAuth } from '../../Hooks';
+import { authRequestService } from '../../RequestService';
 import { formValidationSchema } from '../../Validation';
 
 const LoginForm: React.FC = () => {

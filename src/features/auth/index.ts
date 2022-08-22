@@ -1,4 +1,6 @@
 export { LoginForm } from './Components/LoginForm';
 export { AuthProvider } from './Context';
+export { authRequestService } from './RequestService';
+export { useAuth } from './Hooks';
 
-export type { User, FormValues, UserFromServer } from './auth.entities';
+export * from './auth.entities';

@@ -1,4 +1,3 @@
-export type { ServerError } from './request.entities';
+export * from './request.entities';
 
-export { authRequestService } from './auth';
-export { contentRequestService } from './content';
+export { default as requestService } from './request.service';

@@ -1,7 +1,6 @@
 import { Navigate } from 'react-router-dom';
 
-import { LoginForm } from '../../../features/auth';
-import { useAuth } from '../../../features/auth/Hooks';
+import { LoginForm, useAuth } from '../../../features/auth';
 import { routingService } from '../../../infrastructure/RoutingService';
 
 const LoginScreen: React.FC = () => {

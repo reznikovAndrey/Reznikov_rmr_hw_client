@@ -1,23 +1,18 @@
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 
-import { UserFromServer } from '../../../features/auth';
-import { API_URL } from '../../../utils/constants';
-import { routingService } from '../../RoutingService';
-import { ContentRequestServiceType, ServerKitty, ServerSuccessData } from '../request.entities';
-
-const instance = axios.create({
-  baseURL: API_URL,
-  timeout: 5000,
-});
+import { requestService } from '../../../infrastructure/RequestService';
+import { routingService } from '../../../infrastructure/RoutingService';
+import { UserFromServer } from '../../auth';
+import { ContentRequestServiceType, ServerKitty, ServerSuccessData } from '../content.entities';
 
 const contentRequestService: ContentRequestServiceType = {
   getKitty() {
-    return instance
+    return requestService
       .get<ServerSuccessData<ServerKitty>>(routingService.kitty())
       .then((response: AxiosResponse<ServerSuccessData<ServerKitty>>) => response.data);
   },
   getProfile() {
-    return instance
+    return requestService
       .get<ServerSuccessData<UserFromServer>>(routingService.profile())
       .then((response: AxiosResponse<ServerSuccessData<UserFromServer>>) => response.data);
   },

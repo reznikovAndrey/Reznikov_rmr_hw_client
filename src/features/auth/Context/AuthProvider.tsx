@@ -1,7 +1,8 @@
 import axios, { AxiosError } from 'axios';
 import { FC, PropsWithChildren, useEffect, useMemo, useState, createContext } from 'react';
 
-import { contentRequestService, ServerError } from '../../../infrastructure/RequestService';
+import { ServerError } from '../../../infrastructure/RequestService';
+import { contentRequestService } from '../../content/RequestService';
 import { UserFromServer, AuthContextType, UserStatus } from '../auth.entities';
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);

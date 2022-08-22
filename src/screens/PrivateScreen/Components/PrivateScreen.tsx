@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
-import { useAuth } from '../../../features/auth/Hooks';
-import routingService from '../../../infrastructure/RoutingService/routing.service';
+import { useAuth } from '../../../features/auth';
+import { routingService } from '../../../infrastructure/RoutingService';
 
 const PrivateScreen: React.FC = () => {
   const { loggedIn } = useAuth();
