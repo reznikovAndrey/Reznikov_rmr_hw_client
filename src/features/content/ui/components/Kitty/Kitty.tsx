@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import styles from './Kitty.module.scss';
 
-import { Loader } from '../../../../ui-library/components';
-import { useAuth } from '../../../auth';
+import { Loader } from '../../../../../ui-library/components';
+import { useAuth } from '../../../../auth';
 
 const Kitty: React.FC = () => {
   const { imgSrc } = useAuth();

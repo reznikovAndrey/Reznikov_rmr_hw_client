@@ -1,0 +1,10 @@
+@import "../../../../../ui-library/colors", "../../../../../ui-library/mixins";
+
+.footerItem {
+  color: $white;
+
+  &:hover {
+
+    @include hover-link;
+  }
+}

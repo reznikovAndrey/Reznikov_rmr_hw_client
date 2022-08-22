@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { useAuth } from '../../../auth';
+import { useAuth } from '../../../../auth';
 
 const Profile: React.FC = () => {
   const { userData } = useAuth();
