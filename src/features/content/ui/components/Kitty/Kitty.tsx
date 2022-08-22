@@ -10,12 +10,13 @@ const Kitty: React.FC = () => {
 
   const [show, setShow] = useState(false);
 
-  return (
+  return imgSrc ? (
     <>
-      <h1 className={styles.header}>Okay, here is your cat</h1>
+      {show ? <h1 className={styles.header}>Okay, here is your cat</h1> : <Loader />}
       <img src={imgSrc} alt="kitty" className={styles.kitty} onLoad={() => setShow(true)} />
-      {!show && <Loader />}
     </>
+  ) : (
+    <Loader />
   );
 };
 

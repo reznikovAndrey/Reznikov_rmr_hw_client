@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
+import { Loader } from '../../../../../ui-library/components';
 import { useAuth } from '../../../../auth';
 
 const Profile: React.FC = () => {
@@ -7,26 +8,26 @@ const Profile: React.FC = () => {
 
   const { t } = useTranslation();
 
-  return (
+  return userData ? (
     <>
       <h1>{t('profile.header')}</h1>
-      {userData && (
-        <ul>
-          <li>
-            {t('profile.userData.id')}: {userData.id}
-          </li>
-          <li>
-            {t('profile.userData.email')}: {userData.email}
-          </li>
-          <li>
-            {t('profile.userData.phone')}: {userData.phone}
-          </li>
-          <li>
-            {t('profile.userData.name')}: {userData.name}
-          </li>
-        </ul>
-      )}
+      <ul>
+        <li>
+          {t('profile.userData.id')}: {userData.id}
+        </li>
+        <li>
+          {t('profile.userData.email')}: {userData.email}
+        </li>
+        <li>
+          {t('profile.userData.phone')}: {userData.phone}
+        </li>
+        <li>
+          {t('profile.userData.name')}: {userData.name}
+        </li>
+      </ul>
     </>
+  ) : (
+    <Loader />
   );
 };
 
