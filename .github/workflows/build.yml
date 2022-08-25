@@ -1,0 +1,31 @@
+name: build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - 
+        name: Checkout
+        uses: actions/checkout@v3
+      - 
+        name: Setup node and linters checking
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      -
+        name: Install deps
+        run: npm ci
+      -
+        name: Eslint checking
+        run: npm run lint:es
+      -
+        name: Stylelint checking
+        run: npm run lint:css
+      -
+        name: Create docker image
+        run: docker build -t rmr_client .
+      
+      
